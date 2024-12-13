@@ -2,6 +2,14 @@ import  { useState, useEffect } from 'react';
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useParams } from 'react-router-dom';
+import React from 'react';
+
+
+declare module 'react' {
+    interface TimeHTMLAttributes<T> extends React.HTMLAttributes<T> {
+      pubdate?: boolean;
+    }
+  }
 
 
 interface blogPost{
@@ -66,7 +74,7 @@ export const Blog  = () => {
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
             { blogPost && (
-                <div > 
+                <div >  
                 
                     <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white  antialiased h-screen">
                     <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
@@ -78,7 +86,7 @@ export const Blog  = () => {
                                         <div>
                                             <a href="#" rel="author" className="text-xl font-bold text-gray-900 ">{blogPost.authorData.name.toUpperCase()}</a>
                                             <p className="text-base text-gray-500 "> {blogPost.authorData.role?blogPost.authorData.role:'Content Writer'} </p> 
-                                            <p className="text-base text-gray-500 "><time pubdate datetime="2022-02-08" title="February 8th, 2022">{timeStr} </time></p>
+                                            <p className="text-base text-gray-500 "><time pubdate  title="February 8th, 2022">{timeStr} </time></p>
                                         </div>
                                     </div>
                                 </address>
