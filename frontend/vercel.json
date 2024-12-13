@@ -1,0 +1,10 @@
+{
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": { "cache": ["node_modules"] }
+      }
+    ]
+  }
+  
